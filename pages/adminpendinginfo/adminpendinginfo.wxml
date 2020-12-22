@@ -1,0 +1,79 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">详情</view>
+</cu-custom>
+
+<view class="cu-list menu sm-border card-menu margain-top zdy-card">
+	<view class="cu-form-group">
+		<view class="title">申请人</view>
+		<view class="title text-gray">{{detail.userinfoName}}</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">上课日期</view>
+		<view class="title text-gray">{{detail.year}}</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">上课时间</view>
+		<view class="title text-gray">{{detail.time1}}-{{detail.time2}}</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">实验室</view>
+		<view class="title text-gray">{{detail.labName}}</view>
+	</view>
+	<view class="cu-form-group  align-start">
+		<view class='reason'>
+			预约标签:
+			<text class='text-gray'>{{detail.tagName}}</text>
+		</view>
+	</view>
+	<view class="cu-form-group  align-start">
+		<view class='reason'>
+			申请理由 <text class='text-gray'>{{detail.des}}</text>
+		</view>
+	</view>
+</view>
+<view class="flex margin-top pendingbtn">
+	<button class="cu-btn bg-gradual-blue lg" role="button" aria-disabled="false" bindtap="showModal" data-target="DialogModal1">通
+		过</button>
+	<button class="cu-btn bg-gradual-orange lg" role="button" aria-disabled="false" bindtap="showModal" data-target="DialogModal2">
+		不通过</button>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">确认</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			确认通过这条申请吗？
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action flexbtn">
+				<button class="cu-btn bg-gradual-orange" bindtap="hideModal">取消</button>
+				<button class="cu-btn  bg-gradual-blue margin-left" bindtap="agree">确认</button>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">确认</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			确认拒绝此条申请吗？
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action flexbtn">
+				<button class="cu-btn bg-gradual-orange" bindtap="hideModal">取消</button>
+				<button class="cu-btn  bg-gradual-blue margin-left" bindtap="refuse">确认</button>
+			</view>
+		</view>
+	</view>
+</view>
+<loading hidden="{{loadingHidden}}">加载中...</loading>

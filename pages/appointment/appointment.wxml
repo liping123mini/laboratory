@@ -1,0 +1,91 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">房间预约</view>
+</cu-custom>
+
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group margin-top">
+		<view class="title">教师姓名</view>
+		<text style="text-align: right;padding-right: 40rpx;">{{ username }}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">开始时间</view>
+		<picker mode="multiSelector" value="{{startDate}}" bindchange="bindStartDateChange" bindcolumnchange="changeDateTimeColumn"
+		 range="{{startDateArray}}">
+			<view class="picker" wx:if="{{ showTime }}">
+				{{startDateArray[0][startDate[0]]}}-{{startDateArray[1][startDate[1]]}}-{{startDateArray[2][startDate[2]]}} {{startDateArray[3][startDate[3]]}}:{{startDateArray[4][startDate[4]]}}
+			</view>
+			<view class="picker" wx:else>
+				请选择
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">结束时间</view>
+		<picker mode="multiSelector" value="{{endDate}}" bindchange="bindEndDateChange" bindcolumnchange="changeEndDateColumn"
+		 range="{{endDateArray}}">
+			<view class="picker" wx-if="{{ showTime1 }}">
+				{{endDateArray[0][endDate[0]]}}-{{endDateArray[1][endDate[1]]}}-{{endDateArray[2][endDate[2]]}} {{endDateArray[3][endDate[3]]}}:{{endDateArray[4][endDate[4]]}}
+			</view>
+			<view class="picker" wx:else>
+				请选择
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">预约事项</view>
+		<picker value="{{appoint.index}}" range="{{appointments}}" range-key="name" bindchange="appointmentrea">
+			<view class="picker">
+				{{appointments[appoint.index].name}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">可约房间</view>
+		<view class="mypicker flex-row" bindtap="appointmenthouse">
+			<text>{{ labNames }}</text>
+		</view>
+	</view>
+
+	<!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
+	<view class="cu-form-group margin-top">
+		<textarea bindblur="bindTextAreaBlur" placeholder="请输入预约理由"></textarea>
+	</view>
+
+
+	<view class="padding flex flex-direction">
+		<button form-type='submit' class="cu-btn bg-green lg" role="button" aria-disabled="false">提交申请</button>
+	</view>
+
+	<view class='cu-load load-modal' wx:if="{{loadModal}}">
+		<view class='cuIcon-emojifill text-cyan'></view>
+		<view class='gray-text'>加载中...</view>
+	</view>
+</form>
+<!-- 底部picker -->
+<view class="zhedang" catchtap="zhedang" wx:if="{{ mypickerShow  }}"></view>
+<view class="bottomPicker flex-col" wx:if="{{ mypickerShow  }}">
+	<view class="mybtns flex-row">
+		<text class="line-grey" bindtap="cancle">取消</text>
+		<text class="line-green" bindtap="sure">确定</text>
+	</view>
+	<view style="overflow-y: scroll;max-height: 550rpx;">
+		<checkbox-group bindchange="checkgroup">
+			<block wx:for="{{ appointmenthouses }}" wx:key="{{ item.id }}">
+				<view class="single flex-row" data-index="{{ index }}" data-item="{{ item }}" bindtap="choosehouse">
+					<view class="left flex-col">
+						<text>房间名称</text>
+						<text>{{ item.name }}</text>
+					</view>
+					<view class="right flex-col">
+						<text>容纳人数：{{ item.capacity }}</text>
+						<text>房间位置：{{ item.place }}</text>
+						<text>房间环境：{{ item.labenvNames }}</text>
+					</view>
+					<checkbox class="mycheckbox" catchtap value="{{ item.id }},{{ item.name }}" checked="{{ item.checked }}"></checkbox>
+				</view>
+			</block>
+		</checkbox-group>
+	</view>
+	
+</view>

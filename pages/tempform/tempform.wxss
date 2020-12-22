@@ -1,0 +1,6 @@
+/* pages/tempform/tempform.wxss */
+button[disabled]:not([type]) {
+  background-color: #71BC82;
+  color: aliceblue;
+}
+  

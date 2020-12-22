@@ -1,0 +1,48 @@
+page{
+  background-color: white
+}
+.zdy-curweek{
+  margin-top:6px
+}
+.padding{
+  padding:0 ;
+}
+.margin-bottom{
+  margin-bottom: 0;
+}
+.margin-tb-sm{
+  margin-top: 10px;
+}
+.margin-tb-sm>button{
+  width: 88%;
+}
+.zdy-height{
+  height: 100px
+}
+.nav .cu-item{
+  padding: 0 10rpx;
+}
+.cu-load.load-modal{
+   width: 100rpx;
+   height: 100rpx;
+   font-size: 25rpx;
+}
+
+
+.cu-timeline .cu-time {
+  width: 220rpx;
+}  
+
+.content{
+  position: relative;
+}
+.btn{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-image: var(--gradualBlue);
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 39rpx;
+}

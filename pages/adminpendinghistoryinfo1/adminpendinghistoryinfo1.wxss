@@ -1,0 +1,17 @@
+.card-menu{
+  margin-top: 10px;
+}
+.cu-btn{
+  width: 90%;
+  margin: 0 auto;
+}
+.cu-form-group .text-gray{
+  color: #666666;
+}
+.cu-form-group textarea{
+  line-height: 25px
+}
+.reason{
+  height: 180rpx;
+  padding-top: 30rpx
+}

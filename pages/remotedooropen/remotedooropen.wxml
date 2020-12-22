@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">远程开门</view>
+</cu-custom>
+<view class="box">
+	<view class="mytab flex-row">
+		<block wx:for="{{ tablist }}" wx:key="{{ item.id }}">
+			<text data-index="{{ index }}" data-item="{{ item }}" bindtap="tabchange" class="{{ index === currettab ? 'text-green cur' : '' }}">{{ item.text }}</text>
+		</block>
+	</view>
+	<scroll-view style="height: 80vh;" class="myscroll" scroll-y="true" bindscrolltolower="chudi">
+		<swiper style="height:{{  currettab === 0 ? (200*remoteList.length)+'rpx' : (historylist.length > 0 ? (250*historylist.length)+'rpx' : '700rpx') }}"
+		 bindchange="bindchange" current="{{ currettab }}">
+			<!-- 开门列表 -->
+			<swiper-item>
+				<block wx:for="{{ remoteList }}" wx:key="{{ item.id }}">
+					<view class="list">
+						<view class="flex-row">
+							<text data-item="{{ item }}" bindtap="open" class="iconfont {{ item.lookState === '离线' ? 'lixian' : 'open'}} left"></text>
+							<view class="right flex-col">
+								<text>老师：{{ item.NAME }}</text>
+								<text>状态：{{ item.lookState }}</text>
+								<text>简称：{{ item.abbreviation }}</text>
+							</view>
+						</view>
+					</view>
+				</block>
+			</swiper-item>
+			<!-- 开门记录 -->
+			<swiper-item>
+				<block wx:for="{{ historylist }}" wx:key="{{ item.id }}">
+					<view class="list list1">
+						<view class="flex-row">
+							<view class="right flex-col">
+								<text>操作人员：{{ item.addUserName }}</text>
+								<text>操作房间：{{ item.labName }}</text>
+								<text>操作种类：{{ item.kindName }}</text>
+								<text>操作方法：{{ item.kindMethod }}</text>
+							</view>
+						</view>
+					</view>
+				</block>
+			</swiper-item>
+		</swiper>
+	</scroll-view>
+	<view wx:if="{{ isdaodi.flag }}" style="text-align: center;font-size: 24rpx;">{{ isdaodi.text }}</view>
+	<!-- <view wx:if="{{  }}" class="nlist">暂无数据</view> -->
+</view>

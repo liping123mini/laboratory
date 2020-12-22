@@ -1,0 +1,1011 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx159e6105a8e9745c",
+  "projectname": "schoolLab",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/signIn/index",
+          "pathName": "pages/signIn/index",
+          "query": "courseid=3",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/signInList/index",
+          "pathName": "pages/signInList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/course/course",
+          "pathName": "pages/course/course",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/remotedooropen/remotedooropen",
+          "pathName": "pages/remotedooropen/remotedooropen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpending/adminpending",
+          "pathName": "pages/adminpending/adminpending",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mycourse/mycourse",
+          "pathName": "pages/mycourse/mycourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/applyhistory/applyhistory",
+          "pathName": "pages/applyhistory/applyhistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/adminpendinghistory/adminpendinghistory",
+          "pathName": "pages/adminpendinghistory/adminpendinghistory",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

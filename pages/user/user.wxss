@@ -1,0 +1,74 @@
+.cu-list {
+	justify-content: space-around;
+}
+
+.edit {
+	color: #fff;
+	font-size: 24rpx;
+}
+
+.cu-list.menu-avatar>.cu-item {
+	background-color: transparent;
+}
+
+.cu-item:first-child {
+	padding-right: 27rpx;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 20rpx;
+}
+
+.cu-card>.cu-item {
+	background-color: transparent;
+}
+
+.topinfo {
+	width: 100%;
+	height: 150px;
+	background-image: url(https://xwkj.obs.cn-north-4.myhuaweicloud.com/userbg.jpg);
+	background-size: 100%;
+}
+
+.zdy-fff {
+	color: white;
+}
+
+.zdy-card {
+	background: #fff;
+	margin-top: -40px;
+}
+
+.bg-zdy {
+	background-color: #68D373;
+	color: white;
+}
+
+.cu-avatar image {
+	width: 96rpx;
+	height: 96rpx;
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
+
+.flexbtn .cu-btn {
+	width: 20%
+}
+
+.flexbtn .cu-btn:last-child {
+	margin-left: 350rpx
+}
+
+
+.student {
+	background-image: url("https://xwkj.obs.cn-north-4.myhuaweicloud.com/tiwenshangchuan.png");
+	background-size: 100% 100%;
+	height: 147rpx;
+	border: #ffffff solid 3px;
+}
+.changepwd {
+	padding-left: 10rpx;
+	margin-right: 20rpx;
+}
+.foot {
+	padding-left: 20rpx;
+	margin-bottom: 30rpx;
+}

@@ -1,0 +1,30 @@
+<view class="select-box">
+	<view class="select-current" catchtap="openClose">
+		<text wx:if="{{ !current.name && btnmss === '添加' }}">{{ placeholder }}</text>
+		<text wx:elif="{{ !current.name && btnmss === '编辑' }}" class="option" data-name="{{defaultOption.name}}" data-id="{{defaultOption.id}}" >{{ defaultOption.name }}</text>
+		
+		<text wx:else class="current-name">{{current.name}}</text>
+	</view>
+
+
+	<view class="option-list" wx:if="{{isShow}}"  catchtap="optionTap">
+		<view wx:if="{{ mul }}">
+			<label for="">选择班级</label>
+			<!-- <label for=""><checkbox catchtap="allSelect" checked="{{ select_all }}"></checkbox>全选</label> -->
+			<checkbox-group>
+				<view class="option" wx:for="{{classes}}" wx:key="{{item.id}}">
+					<label style="display: block;width: 100%;height: 100%;" for="item{{ index }}" catchtap="duoxuan" data-index="{{ index }}">
+						<checkbox id="item{{ index }}" class="blue" value="{{item.id}},{{item.name}}" checked="{{ item.checked }}"></checkbox>
+						<text>{{item.name}}</text>
+					</label>
+				</view>
+			</checkbox-group>
+			<view class="mybtn" catchtap="chooseClas">确定</view>
+		</view>
+		<view wx:else>
+			<text class="option" wx:for="{{result}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text>
+		</view>
+
+	</view>
+
+</view>

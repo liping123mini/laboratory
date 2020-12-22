@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">签到凭证</view>
+</cu-custom>
+<view class="tips">
+  签到码
+</view>
+<view class="img">
+  <image mode="widthFix" src="{{imgUrl}}"></image>
+</view>
+<view class="tips">
+  通过微信扫描二维码进行签到
+</view>
+<view class="time">
+  {{Timeliness>0?"剩余签到时间:"+TimelinessStr:Timeliness == undefined?"":"已过期"}}
+</view>

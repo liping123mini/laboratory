@@ -1,0 +1,90 @@
+page {
+	background: #fff;
+}
+/*  */
+.box {
+	width: 95%;
+	margin: auto;
+	margin-top: 30rpx;
+	padding: 30rpx 35rpx;
+	position: relative;
+	border-radius: 20rpx;
+	box-sizing: border-box;
+	background: #fff;
+	padding-bottom: 60rpx;
+	justify-content: flex-start;
+	box-shadow: 0 0 6rpx 6rpx rgba(0, 0, 0, .1);
+}
+/* .box .tagName {
+	left: 50%;
+	width: 100rpx;
+	bottom: 25rpx;
+	text-align: center;
+	margin-left: -50rpx;
+	position: absolute;
+} */
+.box .top {
+	align-items: center;
+}
+.box .top text {
+	white-space:nowrap;
+	margin-right: 100rpx;
+	padding: 3rpx 0rpx;
+	margin-right: 15rpx;
+}
+.mycontent {
+	margin-top: 20rpx;
+}
+.mycontent text {
+	line-height: 50rpx;
+}
+.zdy-height {
+	height: 40px
+}
+.cu-tag {
+	font-size: 9px;
+	margin-right: 5px;
+}
+.cu-item {
+	padding-bottom: 10rpx;
+}
+.cu-item .tag {
+	color: #39b54a;
+	padding: 3rpx 20rpx;
+}
+
+.cu-item .curag {
+	color: #f10125;
+	padding: 3rpx 20rpx;
+}
+
+.cu-item .curag1 {
+	color: #8799a3;
+	padding: 3rpx 20rpx;
+}
+.cu-item .bottom {
+	right: 0rpx;
+	bottom: 15rpx;
+	width: 100%;
+	padding-left: 37rpx;
+	position: absolute;
+}
+swiper {
+	margin-top: 30rpx;
+}
+
+.nilist {
+	color: #999;
+	font-size: 30rpx;
+	text-align: center;
+	margin-top: 300rpx;
+}
+
+.myredo {
+	width: 15rpx;
+	height: 15rpx;
+	margin-right: 50rpx;
+}
+.iconfont.myredo {
+	font-size: 0rpx;
+}

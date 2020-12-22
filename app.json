@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+	"pages/mycourse/mycourse",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/editpassword/editpassword",
+    "pages/appointment/appointment",
+    "pages/adminpendinghistory/adminpendinghistory",
+    "pages/adminpendinghistoryinfo/adminpendinghistoryinfo",
+    "pages/adminpendinghistoryinfo1/adminpendinghistoryinfo1",
+    "pages/adminpendinghistoryinfo2/adminpendinghistoryinfo2",
+    "pages/adminpending/adminpending",
+    "pages/adminpendinginfo/adminpendinginfo",
+    "pages/adminpendinginfo1/adminpendinginfo1",
+    "pages/adminpendinginfo2/adminpendinginfo2",
+    "pages/applyhistory/applyhistory",
+    "pages/logs/logs",
+    "pages/temperature/temperature",
+    "pages/tempform/tempform",
+    "pages/signIn/index",
+    "pages/signInList/index",
+	"pages/remotedooropen/remotedooropen"
+  ],
+  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#26bc5f",
+    "navigationBarTitleText": "实验室",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/component.png",
+        "selectedIconPath": "img/component_cur.png",
+        "text": "开门"
+      },
+      {
+        "pagePath": "pages/mycourse/mycourse",
+        "iconPath": "img/basics.png",
+        "selectedIconPath": "img/basics_cur.png",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "img/about.png",
+        "selectedIconPath": "img/about_cur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+	"select": "/components/select/select"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "设置当前位置为签到位置"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

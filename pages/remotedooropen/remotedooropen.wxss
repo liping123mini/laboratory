@@ -1,0 +1,75 @@
+.box {
+	padding: 20rpx;
+}
+.mytab {
+	margin-bottom: 30rpx;
+	background: #fff;
+	justify-content: space-around;
+}
+.mytab text {
+	padding: 0rpx 10rpx;
+	line-height: 100rpx;
+}
+.cur {
+	border-bottom: 4rpx solid #39b54a;
+}
+.nlist {
+	top: 300rpx;
+	color: #999;
+	font-size: 32rpx;
+	position: absolute;
+}
+.myscroll .list {
+	width: 100%;
+	padding: 20rpx;
+	border-radius: 20rpx;
+	background: #fff;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 25rpx;
+}
+.myscroll .list1 text{
+	line-height: 50rpx;
+}
+.myscroll .list .top {
+	font-weight: 550;
+	align-items: center;
+	margin-bottom: 45rpx;
+}
+
+/* .myscroll .list::before,
+.myscroll .list::after{
+	left: 25%;
+	content: '';
+	width: 30rpx;
+	height: 30rpx;
+	z-index: 1000;
+	background: #e8e8e8;
+	position: absolute;
+	margin-top: -40rpx;
+	transform: rotate(45deg);
+	border-right: 1rpx solid rgba(243, 243, 243);
+	border-bottom: 1rpx solid rgba(243, 243, 243);
+}
+.myscroll .list::after {
+	border: 0rpx;
+	margin-top: 130rpx;
+	border-top: 1rpx solid rgba(243, 243, 243);
+	border-left: 1rpx solid rgba(243, 243, 243);
+} */
+.myscroll .list .left {
+	width: 120rpx;
+	height: 120rpx;
+	padding: 30rpx;
+	border-radius: 50%;
+	box-sizing: border-box;
+	box-shadow: 0rpx 0rpx 5rpx 5rpx #dddddd;
+}
+.myscroll .list .right {
+	width: 70%;
+}
+.myscroll .list .left.iconfont {
+	width: fit-content;
+	margin-top: 0rpx;
+	font-weight: 600;
+}

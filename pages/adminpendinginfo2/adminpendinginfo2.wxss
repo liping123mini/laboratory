@@ -1,0 +1,52 @@
+.card-menu{
+  margin-top: 10px;
+}
+.cu-btn{
+  width: 90%;
+  margin: 0 auto;
+}
+.cu-form-group .text-gray{
+  color: #666666;
+}
+.cu-form-group textarea{
+  line-height: 25px
+}
+.pendingbtn{
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+}
+.pendingbtn button{
+    width: 40%;
+    float: left
+}
+.padding-xl {
+  background-color: white
+}
+.flexbtn{
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+}
+.flexbtn .cu-btn{
+  width: 20%
+}
+
+
+.reason{
+  height: 145rpx;
+  padding-top: 30rpx
+}
+.examineResut{
+    height: 180rpx;
+    padding-top: 30rpx;
+    padding-left: 30rpx
+}
+.examineResut text{
+    padding-left: 20rpx
+}
+.text-examineResut{
+    height: 180rpx;
+}
+
+

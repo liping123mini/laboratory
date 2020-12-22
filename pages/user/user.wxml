@@ -1,0 +1,112 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
+	<view slot="content">个人中心</view>
+</cu-custom>
+<view class='topinfo'>
+	<view class="cu-card case">
+		<view class="cu-item shadow">
+			<view class="cu-list menu-avatar">
+				<view class="cu-item">
+					<view class="cu-avatar round lg">
+						<image src='../../img/admin.jpg'></image>
+					</view>
+					<view class="content flex-sub" wx:if="{{userCode?true:false}}">
+						<view class="text-grey zdy-fff">{{username}}</view>
+						<view class="text-gray text-sm flex justify-between zdy-fff">
+							<text class="iconfont writefill edit"> {{userCode}}</text>
+						</view>
+					</view>
+					<!-- <view class="content flex-sub">
+                <button class="cu-btn round bg-white" open-type="getUserInfo" wx:if="{{userCode?false:true}}" bindgetuserinfo="toLogin" role="button" aria-disabled="false">未登录</button>
+            </view> -->
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view wx:if="{{userType==3}}" style=" border-radius: 0;" class="cu-list menu sm-border card-menu margain-top zdy-card">
+	<view class="cu-list grid col-4 no-border student" bindtap="tiwen">
+
+	</view>
+</view>
+<view wx:if="{{userType==2||userType==4}}" class="cu-list menu sm-border card-menu margain-top zdy-card">
+	<view class="cu-list grid col-4 no-border">
+		<view class="cu-item" bindtap="appointment">
+			<view class="iconfont appointment">
+			</view>
+			<text>
+				房间预约
+			</text>
+		</view>
+		<view class="cu-item" bindtap="applyhistory">
+			<view class="iconfont record">
+			</view>
+			<text>
+				申请记录
+			</text>
+		</view>
+	</view>
+</view>
+<view wx:if="{{userType==1||userType==4}}" class="cu-list menu sm-border card-menu margain-top zdy-card">
+	<view class="cu-list grid col-2 no-border">
+		<view class="cu-item" bindtap="adminpending">
+			<view class="iconfont pendapp">
+			</view>
+			<text>
+				待审批
+			</text>
+		</view>
+		<view class="cu-item" bindtap="adminpendinghistory">
+			<view class="iconfont record">
+			</view>
+			<text>
+				审批纪录
+			</text>
+		</view>
+	</view>
+</view>
+<!-- 只有管理员才能有远程开门 -->
+<view wx:if="{{userType==4}}" class="cu-list menu sm-border card-menu margain-top zdy-card">
+	<view class="cu-list grid col-4 no-border">
+		<view class="cu-item" bindtap="remDoorOpen">
+			<view class="iconfont remopen">
+			</view>
+			<text>
+				远程开门
+			</text>
+		</view>
+	</view>
+</view>
+<view class="cu-list menu sm-border card-menu margain-top zdy-card foot">
+	<view class="cu-item iconfont rightarrow">
+		<navigator class="content" hover-class="none" bindtap='password'>
+			<text class="iconfont changepwd"></text>
+			<text class="text-grey">修改密码</text>
+		</navigator>
+	</view>
+	<view class="cu-item">
+		<button class="cu-btn content" role="button" aria-disabled="false" bindtap="showModal" data-target="DialogModal1">
+			<text class="cuIcon-btn text-red"></text>
+			<text class="text-grey zdy-red">退出登录</text>
+		</button>
+	</view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">确认</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			确认退出登录吗？
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action flexbtn">
+				<button class="cu-btn bg-gradual-orange" bindtap="hideModal">取消</button>
+				<button class="cu-btn  bg-gradual-blue margin-left" bindtap="agree">确认</button>
+			</view>
+		</view>
+	</view>
+</view>

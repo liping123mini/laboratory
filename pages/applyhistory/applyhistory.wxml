@@ -1,0 +1,98 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}" str="spe">
+  <view slot="backText" bindtap="back">返回</view>
+  <view slot="content">申请记录</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px">
+  <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tabNav}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{tabNav[index]}}
+  </view>
+</scroll-view>
+<view class='padding zdy-height'></view>
+<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 0 ? (350*roomlist.length)+'rpx' : '80vh') : (classlist.length > 0 ? (490*classlist.length)+'rpx' : '80vh') }}">
+	<block wx:for="{{ tabNav }}" wx:key="{{ index }}">
+		<!-- 房间申请 -->
+		<swiper-item wx:if="{{ TabCur === 0 }}">
+			<view wx:if="{{ roomlist.length > 0 }}" class="cu-list menu sm-border margain-top zdy-card">
+				<view class="cu-item" wx:for="{{roomlist}}" wx:key="{{ item.id }}" data-item="{{item}}" wx:key="{{index}}">
+					<view class="box">
+						<view class="top flex-row">
+							<text style="margin-right: 20rpx;">申请人：{{item.userinfoName}}</text>
+							<text>{{ item.addTime }}</text>
+						</view>
+						<view class="mycontent flex-col">
+							<text class="text-gray">房 间 名 ：{{ item.labName }}</text>
+							<text class="text-gray">申请原因：{{ item.des }}</text>
+							<text class="text-gray">标签：{{ item.tagName }}</text>
+						</view>
+						<view class="bottom">
+							<view class="flex-row">
+								<text></text>
+								<!-- <text class="text-blue">动作：{{ item.tagName }}</text> -->
+								<view>
+									<text>审批人：{{item.userName}}</text>
+									<text class="{{ item.isApply ? (item.isPass  ? 'tag' : 'curag') : 'curag1' }}" >{{ item.pass }}</text>
+									<text wx:if="{{ !item.isApply && userGroup!=='4' }}" data-target="DialogModal1" class="iconfont myredo" data-item="{{ item }}" bindtap="redo"></text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="nilist" wx:else>暂无数据</view>
+		</swiper-item>
+		<swiper-item wx:else>
+			<view wx:if="{{ classlist.length > 0 }}" class="cu-list menu sm-border margain-top zdy-card">
+				<view class="cu-item" wx:for="{{classlist}}" wx:key="{{ item.id }}" data-item="{{item}}" wx:key="{{index}}">
+					<view class="box">
+						<view class="top flex-row">
+							<text style="margin-right: 20rpx;">申请人：{{item.addUserName}}</text>
+							<text>{{ item.addTime }}</text>
+						</view>
+						<view class="mycontent flex-col">
+							<text class="text-gray">房  间  名  ：{{item.labName}}</text>
+							<text class="text-gray">课  程  名  ：{{item.courseName}}</text>
+							<text class="text-gray">班  级  名  ：{{item.classNames}}({{ item.studentNums }}人)</text>
+							<text class="text-gray">上课日期：{{item.semDay}} {{item.unit}}</text>
+							<view wx:if="{{ item.type === 3 }}" class="flex-col">
+								<text class="text-gray">原始房间  ：{{item.originLabName}}</text>
+								<text class="text-gray">原始课程  ：{{item.originCourseName}}</text>
+								<text class="text-gray">原始班级  ：{{item.originClassNames}}({{ item.originStudentNums }}人)</text>
+								<text class="text-gray">原始日期：{{item.originSemDay}} {{ item.originUnit }}</text>
+							</view>
+							<view wx:if="{{ item.type !== 2 }}"><text class="text-gray">申请原因：{{item.des}}</text></view>
+						</view>
+						<view class="bottom flex-row">
+							<text class="text-blue">动作：{{ item.tytext }}</text>
+							<view>
+								<text>审批人：{{ item.manageUserName  }}</text>
+								<text class="{{ item.isApply ? (item.isPass  ? 'tag' : 'curag') : 'curag1' }}" >{{ item.pass }}</text>
+								<text wx:if="{{ !item.isApply && userGroup!=='4' }}" data-target="DialogModal1"  class="iconfont myredo" data-item="{{ item }}" bindtap="redo"></text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="nilist" wx:else>暂无数据</view>
+		</swiper-item>
+	</block>
+</swiper>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">确认</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl" style="background: #fff;">
+			确认取消此次申请吗？
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action flexbtn">
+				<button class="cu-btn bg-gradual-orange" bindtap="hideModal">取消</button>
+				<button class="cu-btn  bg-gradual-blue margin-left" bindtap="srue">确认</button>
+			</view>
+		</view>
+	</view>
+</view>
+<loading hidden="{{loadingHidden}}">加载中...</loading>

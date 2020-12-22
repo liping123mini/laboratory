@@ -1,0 +1,44 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+
+<view class="cu-list menu sm-border card-menu margain-top zdy-card">
+        <view class="cu-form-group">
+          <view class="title">申请人</view>
+          <view class="title text-gray">{{teacherNames}}</view>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">上课日期</view>
+          <view class="title text-gray">{{startDate}}</view>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">上课时间</view>
+          <view class="title text-gray">{{startTime}}至{{endTime}}</view>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">实验室</view>
+          <view class="title text-gray">{{labName}}</view>
+        </view>
+         <view class="cu-form-group  align-start">
+            <view class='reason'>
+              课程 <text class='text-gray'>{{courseName}}</text>
+            </view>
+        </view>
+        <view class="cu-form-group  align-start">
+            <view class='reason'>
+              申请理由 <text class='text-gray'>{{note}}</text>
+            </view>
+        </view>
+</view>
+<view class="cu-list menu sm-border card-menu margain-top zdy-card">
+        <view class="cu-form-group  align-start">
+            <view class='reason'>
+              审批意见 <text class='text-gray'>{{handleReason}}</text>
+            </view>
+        </view>
+</view>
+     
+
+
+     

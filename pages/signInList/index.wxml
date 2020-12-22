@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">签到记录</view>
+</cu-custom>
+<view class="ul">
+  <view class="li">
+  <view class="name">姓名</view>
+  <view class="time" wx:for="{{times}}">{{item}}</view>
+
+</view>
+<view class="li" wx:for="{{data}}">
+  <view class="name">{{item.name}}</view>
+  <view class="time iconfont {{item[time]?'icon-select':'icon-close'}}" wx:for="{{times}}" wx:for-item="time"></view>
+</view>
+</view>

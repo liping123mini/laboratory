@@ -1,0 +1,67 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">我的课程</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px">
+
+
+<view class="bg-white padding">
+    <view class="grid col-3 margin-bottom text-center">
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn round bg-cyan radius light" disabled='{{index==0}}' role="button" aria-disabled="false" bindtap='afterweek'>上一周</button>
+      </view>
+      <view class="margin-tb-sm text-center">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{weekArray}}" range-key='name'>
+            <view class="picker">
+                <view class='zdy-curweek text-cyan'>{{weekArray[index].name}} <text class="cuIcon-order lg text-cyan"></text></view>
+            </view>
+          </picker>
+      </view>
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn round bg-cyan radius light"  disabled='{{index==weekArray.length-1}}' role="button" aria-disabled="false" bindtap='nextweek'>下一周</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{courseArray}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+    {{item.name}}
+  </view>
+</scroll-view>   
+
+<view class='padding bg-white zdy-height'></view>
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-cyan'></view>
+  <view class='gray-text'>加载中...</view>
+</view>
+
+<block wx:for="{{courseArray}}" wx:key="index" wx:if="{{TabCur==index}}">
+    <view class="cu-timeline"  wx:for="{{item.list}}" wx:for-item="list" wx:key="index1">
+      <view class="cu-time">{{list.startTime}}-{{list.endTime}}</view>
+        <view class="cu-item text-orange"  wx:if="{{list.startTime!=null && list.startTime !=undefined && list.startTime !=''}}">
+          <view class="content" data-courseid="{{list.id}}" bindtap="toList">
+            <view class="cu-capsule radius">
+              <view class="cu-tag bg-cyan">
+              {{list.labName}}
+              </view>
+              <view class="cu-tag line-cyan">
+              {{list.teacherNames}}
+              </view>
+            </view>
+            <view class="margin-top">
+                课程名称：{{list.courseNames}}
+            </view>
+            <view class="margin-top" style="word-break:break-all; overflow:hidden;">
+                上课班级：{{list.classNames}}
+            </view>
+            <view class="margin-top">
+              上课日期：{{list.startDate}}
+            </view>
+            <!-- userGroup: 2、4老师  3学生 -->
+            <view class="btn" wx:if="{{userGroup == 2 || userGroup == 4}}" data-courseid="{{list.id}}" catchtap="sponsorSignIn">发起签到</view>
+            <view class="btn" wx:if="{{userGroup == 3}}" data-courseid="{{list.id}}" data-courseid="{{list.id}}" catchtap="signIn">签到</view>
+          </view>
+      </view>
+    </view>
+</block> 
+

@@ -1,0 +1,201 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+	<view slot="content">我的课程</view>
+</cu-custom>
+<view wx:if="{{ userGroup !== '3' }}">
+	<view class="mycourse">
+		<view class="top flex-row">
+			<text class="cu-btn round bg-cyan radius light" bindtap="upday">上一天</text>
+			<view bindtap="dateMainBtn">
+				<view class="picker iconfont zdy-curweek1">
+					{{nowDate}}
+				</view>
+				<text class="info text-cyan">{{ mytime }}</text>
+			</view>
+			<view class="propTimeBody" wx:if="{{propDate}}">
+				<view class="propTimeMain">
+					<view class="propTop clearfix">
+						<text class="fl noBtn" bindtap="noBtnTime">取消</text>
+						<!-- 第几周 -->
+						<text>{{mytime}}</text>
+						<text class="fr okBtn" bindtap="okBtnTime">确定</text>
+					</view>
+					<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+						<picker-view-column>
+							<view wx:for="{{years}}" wx:key="years" style="line-height: 50px; text-align: center;">{{item}}年</view>
+						</picker-view-column>
+						<picker-view-column>
+							<view wx:for="{{months}}" wx:key="months" style="line-height: 50px; text-align: center;">{{item}}月</view>
+						</picker-view-column>
+						<picker-view-column>
+							<view wx:for="{{days}}" wx:key="days" style="line-height: 50px; text-align: center;">{{item}}日</view>
+						</picker-view-column>
+					</picker-view>
+				</view>
+			</view>
+			<text class="cu-btn round bg-cyan radius light" bindtap="dnday">下一天</text>
+		</view>
+		<view class="mytab flex-row">
+			<block wx:for="{{ tabList }}" wx:key="{{ item.id }}">
+				<text class="{{index === currenttab?'text-cyan cur':''}}" data-index="{{ index }}" data-item="{{ item }}" bindtap="tabSelect">{{ item.value }}</text>
+			</block>
+			{{item.value}}
+		</view>
+		<scroll-view class="myscroll" scroll-y="true">
+			<swiper style="height:{{  450*courselist.length > 0 ? (450*courselist.length)+'rpx' : '700rpx'}}" bindchange="bindchange"
+			 current="{{ currenttab }}">
+				<block wx:for="{{ tabList }}" wx:key="{{ item.id }}">
+					<swiper-item>
+						<view class="nolist" wx:if="{{ 430*courselist.length <= 0 }}">暂无数据</view>
+						<view wx:else>
+							<block wx:for="{{ courselist }}" wx:key="{{ item.id }}">
+								<view class="course flex-col">
+									<view wx:if="{{ userGroup !== '4' }}">
+										<text wx:if="{{ item.state === 2 }}" class="type">{{ item.statustext }}</text>
+									</view>
+									<view wx:else>
+										<text wx:if="{{ item.newtype.length > 0 }}" class="type">{{ item.newtype }}</text>
+									</view>
+									<view class="right flex-col">
+										<text>教 师 姓 名：{{ item.teacherNames }}</text>
+										<text>实验室名称：{{ item.labName }}</text>
+										<text>课 程 名 称：{{ item.courseNames }}</text>
+										<text wx:if="{{ item.newtype.length <= 0 }}">所 含 班 级：{{ item.classNames }}</text>
+										<text wx:if="{{ item.newtype.length <= 0 }}">学 生 人 数：{{ item.studentNums }}</text>
+									</view>
+									<view class="operation">
+										<text data-item="{{ item }}" wx:if="{{ item.panduan }}" class="{{ (item.state === 2 || item.id < 0 || item.type === 2)  ? 'iconfont courseedit1' : 'iconfont courseedit' }}"
+										 bindtap="edit"></text>
+										<text data-item="{{ item }}" wx:if="{{ item.panduan }}" class="{{ (item.state !== 2 && item.id >= 0 && item.type !== 2) ? 'iconfont coursedel' : 'iconfont coursedel1' }}"
+										 bindtap="del"></text>
+									</view>
+								</view>
+							</block>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</scroll-view>
+		<view class="iconfont add" bindtap="addcourse"></view>
+	</view>
+	<!-- 添加的和编辑的弹框 -->
+	<view class="mydialog" wx:if="{{ isShow }}" catchtap="cancle">
+		<form class="box" action="" catchtap>
+			<view class="myadd">{{ diatitle }}</view>
+			<label for="" class="flex-row"><text class="name">教师：</text><input name="teacher" type="text" disabled value="{{ userName }}" /></label>
+			<label for="" class="flex-row"><text class="name">学期：</text><input name="teacher" type="text" disabled value="{{ semdef.name  }}" /></label>
+			<label for="" class="flex-row"><text class="name">日期：</text><input name="mydate" type="text" disabled value="{{ nowDate }}" /></label>
+			<label for="" class="flex-row"><text class="name">单元：</text>
+				<input wx:if="{{btnmss === '添加'}}" type="text" disabled value="{{ unitname }}" />
+				<select wx:else style="width: 80%;" defaultOption="{{ ubitdef }}" btnmss="{{ btnmss }}" placeholder="请选择单元" key="id"
+				 text="unit" id="units" options="{{units}}" bind:change="unitchange"></select>
+			</label>
+			<label for="" class="flex-row"><text class="name">批次：</text>
+				<select style="width: 80%;" btnmss="{{ btnmss }}" defaultOption="{{ batdef }}" placeholder="请选择批次" semChoose="{{ form.semId }}"
+				 key="newid" text="batchName" id="batchs" options="{{batchs}}" bind:change="batchange"></select>
+			</label>
+			<label for="" class="flex-row"><text class="name">班级：</text>
+				<select style="width: 80%;" defaultOption="{{ cladef }}" btnmss="{{ btnmss }}" mul="{{ true }}" bind:chooseClas="chooseClas"
+				 placeholder="请选择班级" key="id" text="claname" id="classes" classes="{{ classes }}" options="{{classes}}" bind:change="clachange"></select>
+			</label>
+			<!-- wx:if="{{ isShowCla }}" -->
+			<label for="" class="flex-row"><text class="name">实验室：</text>
+				<select style="width: 80%;" btnmss="{{ btnmss }}" defaultOption="{{ labdef }}" placeholder="请选择实验室" key="id" text="labname"
+				 id="laboratorys" options="{{laboratorys}}" bind:change="labchange"></select>
+			</label>
+			<label for="">
+				<textarea wx:if="{{ btnmss === '编辑' }}" name="" id="" placeholder="请输入申请理由" bindinput="intreason"></textarea>
+			</label>
+			<view class="mybtn flex-row">
+				<button bindtap="mysubmit">{{ btnmss }}</button>
+				<button bindtap="cancle">取消</button>
+			</view>
+		</form>
+	</view>
+	<view class="mydialog" wx:if="{{ isDel }}" bindtap="cancle">
+		<!-- catchtap阻止事件冒泡 -->
+		<view class="box delbox" catchtap>
+			<view class="info">
+				<view><text class="iconfont warning"></text>是否申请删除这条数据?</view>
+				<textarea name="" id="" placeholder="请输入申请理由" bindinput="intreason"></textarea>
+			</view>
+			<view class="mybtn flex-row">
+				<button bindtap="diasure">确定</button>
+				<button bindtap="cancle">取消</button>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 学生 -->
+<view wx:else>
+	<scroll-view scroll-x class="student bg-white nav text-center fixed" style="top:{{CustomBar}}px">
+
+		<view class="bg-white padding">
+			<view class="grid col-3 margin-bottom text-center">
+				<view class="margin-tb-sm text-center">
+					<button class="cu-btn round bg-cyan radius light" disabled='{{index==0}}' role="button" aria-disabled="false"
+					 bindtap='afterweek'>上一周</button>
+				</view>
+				<view class="margin-tb-sm text-center">
+					<picker bindchange="bindPickerChange" value="{{index}}" range="{{weekArray}}" range-key='name'>
+						<view class="picker">
+							<view class='zdy-curweek text-cyan'>{{weekArray[index].name}} <text class="cuIcon-order lg text-cyan"></text></view>
+						</view>
+					</picker>
+				</view>
+				<view class="margin-tb-sm text-center">
+					<button class="cu-btn round bg-cyan radius light" disabled='{{index==weekArray.length-1}}' role="button"
+					 aria-disabled="false" bindtap='nextweek'>下一周</button>
+				</view>
+			</view>
+		</view>
+
+		<view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{courseArray}}" wx:key="index" bindtap='tabSelect1'
+		 data-id="{{index}}">
+			{{item.name}}
+		</view>
+	</scroll-view>
+
+	<view class='padding bg-white zdy-height'></view>
+
+	<view class='cu-load load-modal' wx:if="{{loadModal}}">
+		<view class='cuIcon-emojifill text-cyan'></view>
+		<view class='gray-text'>加载中...</view>
+	</view>
+
+	<block wx:for="{{courseArray}}" wx:key="index" wx:if="{{TabCur==index}}">
+		<view class="cu-timeline" wx:for="{{item.list}}" wx:for-item="list" wx:key="index1">
+			<view class="cu-time">{{list.startTime}}-{{list.endTime}}</view>
+			<view class="cu-item text-orange" wx:if="{{list.startTime!=null && list.startTime !=undefined && list.startTime !=''}}">
+				<view class="content" data-courseid="{{list.id}}" bindtap="toList">
+					<view class="cu-capsule radius">
+						<view class="cu-tag bg-cyan">
+							{{list.labName}}
+						</view>
+						<view class="cu-tag line-cyan">
+							{{list.teacherNames}}
+						</view>
+					</view>
+					<view class="margin-top">
+						课程名称：{{list.courseNames}}
+					</view>
+					<view class="margin-top" style="word-break:break-all; overflow:hidden;">
+						上课班级：{{list.classNames}}
+					</view>
+					<view class="margin-top">
+						上课日期：{{list.startDate}}
+					</view>
+					<!-- userGroup: 2、4老师  3学生 -->
+					<!-- <view class="btn" wx:if="{{userGroup == 2 || userGroup == 4}}" data-courseid="{{list.id}}" catchtap="sponsorSignIn">发起签到</view> -->
+					<!-- <view class="btn" wx:if="{{userGroup == 3}}" data-courseid="{{list.id}}" data-courseid="{{list.id}}" catchtap="signIn">签到</view> -->
+				</view>
+			</view>
+		</view>
+	</block>
+
+</view>
+
+<!-- 申请弹框 -->
+<!-- <view class="mydialog" wx:if="{{ isErjiShow }}" catchtap="ercancle">
+	<view class="box">ahah</view>
+</view> -->
+<!-- <loading hidden="{{loadingHidden}}">加载中...</loading> -->

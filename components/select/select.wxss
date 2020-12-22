@@ -1,0 +1,95 @@
+.select-box {
+  position: relative;
+  width: 100%;
+  font-size: 24rpx;
+}
+
+.select-current {
+  position: relative;
+  width: 100%;
+  padding: 0 10rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+}
+checkbox {
+	transform: scale(0.6);
+}
+checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #1cbbb4!important;
+  border-color:#1cbbb4;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;  
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.mybtn {
+	color: #fff;
+	font-size: 24rpx;
+	background: #1cbbb4;
+	line-height: 45rpx;
+	margin-left:20rpx ;
+	text-align: center;
+	border: 1rpx solid #1cbbb4;
+}
+.select-current::after {
+  position: absolute;
+  display: block;
+  right: 16rpx;
+  top: 22rpx;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top: 10rpx solid #999;
+}
+
+.current-name {
+  display: block;
+  width: 85%;
+  height: 100%;
+  overflow-x: scroll;
+  white-space:nowrap;
+}
+
+.option-list {
+  position: absolute;
+  left: 0;
+  top: 76rpx;
+  width: 100%;
+  max-height: 300rpx;
+  overflow-y: scroll;
+  padding: 12rpx 20rpx 10rpx 20rpx;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+  z-index: 99;
+  box-shadow: 0rpx 0rpx 1rpx 1rpx rgba(0, 0, 0, 0.2) inset;
+  background-color: #fff;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  font-size: 30rpx;
+  overflow-x: scroll;
+  line-height: 70rpx;
+  white-space:nowrap;
+  border-bottom: 1rpx solid #eee;
+}
+
+.option:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  line-height: 48rpx;
+}

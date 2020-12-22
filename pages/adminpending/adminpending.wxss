@@ -1,0 +1,86 @@
+page {
+	background: #fff;
+}
+.zdy-height{
+  height: 40px
+}
+.cu-tag{
+  font-size: 9px;
+  margin-right: 5px;
+}
+/*  */
+.box {
+	width: 95%;
+	margin: auto;
+	margin-top: 30rpx;
+	padding: 30rpx;
+	position: relative;
+	border-radius: 20rpx;
+	box-sizing: border-box;
+	background: #fff;
+	justify-content: flex-start;
+	box-shadow: 0 0 6rpx 6rpx rgba(0, 0, 0, .1);
+}
+.box .top {
+	align-items: center;
+	margin-bottom: 10rpx;
+}
+.box .top text {
+	white-space:nowrap;
+	margin-right: 100rpx;
+	padding: 3rpx 0rpx;
+	margin-right: 15rpx;
+}
+.box .mytime {
+	color: #999;
+	width: 100%;
+	line-height: 55rpx;
+	font-size: 24rpx;
+	text-align: right;
+}
+label {
+	margin-top: 60rpx;
+}
+.mycontent text {
+	line-height: 50rpx;
+}
+swiper {
+	margin-top: 30rpx;
+}
+.cu-item {
+	padding-bottom: 10rpx;
+}
+.cu-item .tag {
+	color: #39b54a;
+	padding: 3rpx 20rpx;
+}
+
+.cu-item .curag {
+	color: #f10125;
+	padding: 3rpx 20rpx;
+}
+.cu-item .curag1 {
+	color: #8799a3;
+	padding: 3rpx 20rpx;
+}
+
+.nilist {
+	color: #999;
+	font-size: 30rpx;
+	text-align: center;
+	margin-top: 300rpx;
+}
+.footer {
+	width: 100%;
+	background: #fff;
+	position: fixed;
+	bottom: 0rpx;
+	padding: 0rpx 30rpx;
+	line-height: 90rpx;
+}
+.footer .mybtn text {
+	padding: 18rpx 30rpx;
+	margin-left: 45rpx;
+	font-size: 30rpx;
+	border-radius: 10rpx;
+}

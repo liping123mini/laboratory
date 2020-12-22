@@ -1,0 +1,271 @@
+page {
+	background: #fff;
+}
+/* new */
+.propTimeBody{
+  position: fixed;
+  left: 0.left;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+}
+.propTimeBody .propTimeMain{
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 111;
+}
+.propTimeBody .propTimeMain .propTop{
+  text-align: center;
+  padding: 30rpx 20rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.propTimeBody .propTimeMain .propTop .noBtn{
+  color: #666;
+}
+.propTimeBody .propTimeMain .propTop .okBtn{
+  color: #0084ff;
+}
+/* new */
+.top {
+	padding: 20rpx 0rpx;
+	box-sizing: border-box;
+}
+.top text {
+	font-size: 32rpx;
+}
+.nolist {
+	width: 100%;
+	color: #666;
+	text-align: center;
+	font-size: 32rpx;
+	margin-top: 200rpx;
+}
+.zdy-curweek1::after {
+	color: #1cbbb4;
+	font-size: 28rpx;
+	content: "\e630";
+}
+.top .picker {
+	color: #1cbbb4;
+	font-size: 32rpx;
+	/* line-height: 28rpx; */
+}
+.top .info {
+	width: 100%;
+	display: block;
+	font-size: 30rpx;
+	display: block;
+	text-align: center;
+	margin-top: 10rpx;
+	padding-right: 15rpx;
+}
+.mytab {
+	padding: 20rpx 0rpx 0rpx 0prx;
+	font-size: 24rpx;
+	border-bottom: 1rpx solid #e3e3e3;
+	justify-content: space-evenly;
+}
+.mytab text {
+	font-size: 30rpx;
+	padding: 30rpx 10rpx 30rpx 10rpx;
+}
+.cur{
+	border-bottom: 4rpx solid;
+}
+.myscroll{
+	padding: 20rpx;
+	height: 85vh;
+	background: #fff;
+	border-bottom: 1px solid rgba(243,243,243,0.8);
+}
+.myscroll  .course {
+	width: 98%;
+	margin: auto;
+	margin-top: 35rpx;
+	padding: 20rpx 8rpx;
+	position: relative;
+	border-radius: 20rpx;
+	box-sizing: border-box;
+	/* padding-top: 20rpx; */
+	justify-content: flex-start;
+	box-shadow: 0 0 6rpx 6rpx rgba(0,0,0,.1);
+}
+.myscroll .course .type {
+	top: 10rpx;
+	right: 20rpx;
+	color: #1cbbb4;
+	padding: 10rpx 20rpx;
+	font-size: 30rpx;
+	position: absolute;
+	background: #d2f1f0;
+}
+.myscroll .course .left {
+	margin-bottom: 20rpx;
+	align-items: center;
+}
+.myscroll .course .left text {
+	margin: auto 0;
+	width: fit-content;
+	color: #1cbbb4;
+	font-size: 30rpx;
+	text-align: center;
+	padding: 10rpx 15rpx;
+	line-height: 50rpx;
+	box-sizing: border-box;
+	background: #d2f1f0;
+}
+.myscroll .course:last-child {
+	margin-bottom: 20rpx;
+} 
+.myscroll .course .right {
+	font-size: 30rpx;
+	margin-left: 20rpx;
+}
+.myscroll .course .right text {
+	color: #666;
+	line-height: 50rpx;
+	/* width: 535rpx; */
+	white-space: normal;
+}
+.myscroll .course .operation {
+	right: 30rpx;
+	bottom: 25rpx;
+	position: absolute;
+}
+.myscroll .course .operation text {
+	margin-right: 20rpx;
+}
+/* 弹框 */
+.mydialog {
+	top: 0rpx;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	background: rgba(0,0,0,0.6);
+}
+.mydialog .box {
+	width: 85%;
+	font-size: 30rpx;
+	/* height: 500rpx; */
+	display: block;
+	background: #fff;
+	margin: auto;
+	position: relative;
+	padding: 100rpx 45rpx;
+	border-radius: 15rpx;
+	margin-top: 216rpx;
+	padding-bottom: 150rpx;
+	box-sizing: border-box;
+}
+.mydialog form .myadd {
+	top: 40rpx;
+	left: 20rpx;
+	position: absolute;
+}
+.mydialog form label {
+	align-items: center;
+	margin-top: 25rpx;
+	font-size: 30rpx;
+	justify-content: flex-start;
+}
+.mydialog textarea {
+	width: 100%;
+	height: 200rpx;
+	margin-top: 25rpx;
+	padding: 15rpx;
+	border: 1rpx solid #ccc;
+}
+.mydialog form label .name {
+	width: 125rpx;
+	text-align: right;
+}
+.mydialog form label input {
+	display: block;
+	width: 80%;
+	height: 50rpx;
+	font-size: 30rpx;
+	padding: 5rpx 10rpx;
+	border: 1rpx solid #e5e5e5;
+}
+.mydialog .box .mybtn {
+	right: 42rpx;
+	bottom: 25rpx;
+	position: absolute;
+	
+}
+.mydialog .delbox {
+	padding-top: 20rpx;
+	height: auto;
+}
+
+.mybtn button {
+	color: #fff;
+	font-size: 30rpx;
+	background: #1cbbb4;
+	line-height: 65rpx;
+	margin-left:20rpx ;
+	border: 1rpx solid #1cbbb4;
+}
+.mybtn button:last-child {
+	color: #fff;
+	background: #999;
+	border: 1rpx solid #e3e3e3;
+}
+/* 学生端 */
+page{
+  background-color: white
+}
+.zdy-curweek1{
+  margin-top:6px
+}
+.zdy-curweek{
+  margin-top:20px
+}
+.padding{
+  padding:0 ;
+}
+.margin-bottom{
+  margin-bottom: 0;
+}
+.margin-tb-sm{
+  margin-top: 10px;
+}
+.margin-tb-sm>button{
+  width: 88%;
+}
+.zdy-height{
+  height: 100px
+}
+.nav .cu-item{
+  padding: 0 10rpx;
+}
+.cu-load.load-modal{
+   width: 100rpx;
+   height: 100rpx;
+   font-size: 30rpx;
+}
+
+
+.cu-timeline .cu-time {
+  width: 220rpx;
+}  
+
+.content{
+  position: relative;
+}
+.btn{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-image: var(--gradualBlue);
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 39rpx;
+}

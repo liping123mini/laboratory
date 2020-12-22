@@ -1,0 +1,52 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
+	<view slot="content">扫码开门</view>
+</cu-custom>
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+	<swiper-item wx:for="{{swiperList}}" wx:key="index">
+		<image src="{{item}}" mode="aspectFill"></image>
+	</swiper-item>
+</swiper>
+
+<view class="margin-tb text-center">
+	<swiper indicator-dots="{{ userGroup === '4' ? true : false }}" class="myscroll" wx:if="{{ userGroup != '3' }}" style="width: 100%;"
+	 scroll-x="true">
+		<swiper-item>
+			<view class="single flex-row" data-item="{{ operList1[0] }}" bindtap="tapclick">
+				<view class="{{ operList1[0].icon }}"></view>
+				<text>{{ operList1[0].text }}</text>
+			</view>
+			<view wx-if="{{ userGroup === '4' }}" class="single flex-row" data-item="{{ operList1[1] }}" bindtap="tapclick">
+				<view class="{{ operList1[1].icon }}"></view>
+				<text>{{ operList1[1].text }}</text>
+			</view>
+			<view wx-if="{{ userGroup === '4' }}" class="single flex-row" data-item="{{ operList1[2] }}" bindtap="tapclick">
+				<view class="{{ operList1[2].icon }}"></view>
+				<text>{{ operList1[2].text }}</text>
+			</view>
+			<view  wx-if="{{ userGroup === '2' }}" class="single flex-row" data-item="{{ operList2[0] }}" bindtap="tapclick">
+				<view class="{{ operList2[0].icon }}"></view>
+				<text>{{ operList2[0].text }}</text>
+			</view>
+		</swiper-item>
+		<swiper-item wx-if="{{ userGroup === '4' }}">
+			<view class="single flex-row" data-item="{{ operList2[0] }}" bindtap="tapclick">
+				<view class="{{ operList2[0].icon }}"></view>
+				<text>{{ operList2[0].text }}</text>
+			</view>
+			<view class="single flex-row" data-item="{{ operList2[1] }}" bindtap="tapclick">
+				<view class="{{ operList2[1].icon }}"></view>
+				<text>{{ operList2[1].text }}</text>
+			</view>
+		</swiper-item>
+	</swiper>
+	<view class='code bg-green shadow-blur' bindtap='code'>
+		<text class="cuIcon-barcode lg text-white"></text>
+		<view class='codefont'>
+			<text class="text-white">扫描码</text>
+		</view>
+	</view>
+	<view class='font' wx:if='{{userType!=3}}'>
+		<text class='text-black'>门打不开？试试</text>
+		<!-- <text class='text-green' bindtap='applydoor'>申请临时开门</text> -->
+	</view>
+</view>

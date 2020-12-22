@@ -1,0 +1,99 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}" str="spe">
+	<view slot="backText">返回</view>
+	<view slot="content">审批记录</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px">
+	<view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tabNav}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+		{{tabNav[index]}}
+	</view>
+</scroll-view>
+
+<view class='padding zdy-height'></view>
+<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 0 ? (360*roomlist.length)+'rpx' : '80vh') : (classlist.length > 0 ? (718*classlist.length)+'rpx' : '80vh') }}">
+	<block wx:for="{{ tabNav }}" wx:key="{{ index }}">
+		<!-- 房间审批 -->
+		<swiper-item wx:if="{{ TabCur === 0 }}">
+			<view wx:if="{{ roomlist.length > 0 }}">
+				<view wx:for="{{ roomlist }}" wx:key="{{ item.id }}">
+					<view class="box">
+						<view class="top flex-row">
+							<text>申请人：{{ item.userinfoName }}</text>
+							<text>{{ item.startTime }}</text>
+						</view>
+						<view class="mycontent flex-col">
+							<text class="text-gray">房 间 名 ：{{ item.labName }}</text>
+							<text class="text-gray">申请原因：{{ item.des }}</text>
+							<text class="text-gray">标签：{{ item.tagName }}</text>
+						</view>
+						<view class="bottom flex-row">
+							<text></text>
+							<!-- <text class="text-blue">动作：{{ item.typetext }}</text> -->
+							<view>
+								<text>审批人：{{item.userName}}</text>
+								<text class="{{ item.isPass  ? 'tag' : 'curag' }}">{{ item.pass }}</text>
+								<text data-item="{{ item }}" wx:if="{{ item.isPass }}" style="font-size: 0rpx;" class="iconfont coursedel"
+								 bindtap="mydel"></text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="nilist" wx:else>暂无数据</view>
+		</swiper-item>
+		<!-- 课程审批 -->
+		<swiper-item wx:else>
+			<view wx:if="{{ classlist.length > 0 }}">
+				<block wx:for="{{ classlist }}" wx:key="{{ item.id }}">
+					<view class="box">
+						<view class="top flex-row">
+							<text>申请人：{{ item.addUserName }}</text>
+							<text>{{ item.startDateTime }}</text>
+						</view>
+						<view class="mycontent flex-col">
+							<text class="text-gray">房 间 名 ：{{ item.labName }}</text>
+							<text class="text-gray">课 程 名 ：{{ item.courseName }}</text>
+							<text class="text-gray">班 级 名 ：{{ item.classNames }}({{item.studentNums}}人)</text>
+							<text class="text-gray">上课时间：{{ item.semDay }} {{ item.unit }}</text>
+						</view>
+						<view wx:if="{{ item.type === 3 }}" style="margin-top: 0rpx;" class="mycontent flex-col">
+							<text class="text-gray">原始房间 ：{{ item.originLabName }}</text>
+							<text class="text-gray">原始课程 ：{{ item.originCourseName }}</text>
+							<text class="text-gray">原始班级 ：{{ item.originClassNames }}</text>
+							<text class="text-gray">原始时间：{{ item.originSemDay }} {{ item.originUnit }}</text>
+							<text class="text-gray" wx:if="{{ item.type !== 2 }}">申请原因：{{item.des}}</text>
+						</view>
+						
+						<!-- 	<view class="mycontent text-gray">
+							
+						</view> -->
+						<view class="bottom flex-row">
+							<text class="text-blue">动作：{{ item.typetext }}</text>
+							<view>
+								<text>审批人：{{ item.manageUserName }}</text>
+								<text class="{{ item.isPass  ? 'tag' : 'curag' }}">{{ item.pass }}</text>
+								<!-- <text data-item="{{ item }}" wx:if="{{ item.isPass }}" style="font-size: 0rpx;" class="iconfont coursedel"
+								 bindtap="mydel"></text> -->
+							</view>
+						</view>
+					</view>
+				</block>
+			</view>
+			<view class="nilist" wx:else>暂无数据</view>
+		</swiper-item>
+	</block>
+</swiper>
+<view class="mydialog" wx:if="{{ isDel }}" bindtap="mydel">
+	<!-- catchtap阻止事件冒泡 -->
+	<view class="mybox delbox" catchtap>
+		<view class="info">
+			<view><text class="iconfont warning"></text>是否申请删除这条数据?</view>
+			<textarea name="" id="" placeholder="请输入申请理由" bindinput="intreason"></textarea>
+		</view>
+		<view class="mybtn flex-row">
+			<button bindtap="diasure">确定</button>
+			<button bindtap="cancle">取消</button>
+		</view>
+	</view>
+</view>
+<loading hidden="{{ loadingHidden }}">加载中...</loading>
