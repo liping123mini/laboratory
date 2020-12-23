@@ -26,12 +26,12 @@ Page({
 			loadingHidden: false
 		})
 		post.post('api/getMyApplyRoom', arg, (res) => {
-			// console.log(res)
 			res.forEach(ele => {
+				ele.active  = ele.type === 0 ? "新增" : "删除"
 				ele.year = ele.startTime.slice(0, 10)
 				ele.time1 = ele.startTime.slice(11)
 				ele.time2 = ele.overTime.slice(11)
-				ele.pass = ele.isApply ? (ele.isPass ? "已通过" : "已拒绝") : "未审批"
+				ele.pass = ele.isApply ? (ele.isPass === 1 ? "已通过" : (ele.isPass === 0 ? "已拒绝" : "未审批")) : "未审批"
 			})
 			this.setData({
 				loadingHidden: true,

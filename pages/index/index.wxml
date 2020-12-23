@@ -45,8 +45,8 @@
 			<text class="text-white">扫描码</text>
 		</view>
 	</view>
-	<view class='font' wx:if='{{userType!=3}}'>
+	<!-- <view class='font' wx:if='{{userType!=3}}'>
 		<text class='text-black'>门打不开？试试</text>
-		<!-- <text class='text-green' bindtap='applydoor'>申请临时开门</text> -->
-	</view>
+		<text class='text-green' bindtap='applydoor'>申请临时开门</text>
+	</view> -->
 </view>

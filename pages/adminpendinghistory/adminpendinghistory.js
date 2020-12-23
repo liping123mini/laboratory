@@ -63,9 +63,9 @@ Page({
 		this.setData({ loadingHidden:false })
 		post.post('api/getMyAuditRoom', arg, (res) => {
 			res.forEach(ele => {
-				console.log(ele)
+				ele.active  = ele.type === 0 ? "新增" : "删除"
 				ele.year = ele.startTime.slice(0,10)
-				ele.pass = ele.isPass ? "已通过" : "已拒绝"
+				ele.pass = ele.isApply ? (ele.isPass === 1 ? "已通过" : (ele.isPass === 0 ? "已拒绝" : "未审批")) : "未审批"
 			})
 			this.setData({
 				loadingHidden: true,
@@ -87,7 +87,7 @@ Page({
 		this.setData({ loadingHidden:false })
 		post.post('api/getCourseApplyList', arg, (res) => {
 			res.forEach(ele => {
-				ele.typetext = ele.type === 1 ? "删除" : (ele.type === 2 ? '添加' : '编辑')
+				ele.typetext = ele.type === 1 ? "删除" : (ele.type === 2 ? '新增' : '修改')
 				ele.year = ele.startDateTime.slice(0,10)
 				ele.pass = ele.isPass ? "已通过" : "已拒绝"
 				ele.unit = ele.unit === 1 ? '单元一' : (ele.unit === 2 ? "单元二" : (ele.unit === 3 ? '单元三' : (ele.unit === 4 ? '单元四' : '单元五')))

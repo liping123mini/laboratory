@@ -59,7 +59,7 @@ Page({
 		}
 		post.post('api/getCourseApplyList', arg, (res) => {
 			res.forEach(ele => {
-				ele.tag = ele.type === 1 ? "删除" : (ele.type === 2 ? "新增" : "编辑")
+				ele.tag = ele.type === 1 ? "删除" : (ele.type === 2 ? "新增" : "修改")
 				ele.year = ele.startDateTime.slice(0,10)
 				ele.time1 = ele.startDateTime.slice(11)
 				ele.time2 = ele.endDateTime.slice(11)

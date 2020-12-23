@@ -26,8 +26,7 @@
 						</view>
 						<view class="bottom">
 							<view class="flex-row">
-								<text></text>
-								<!-- <text class="text-blue">动作：{{ item.tagName }}</text> -->
+								<text class="text-blue">动作：{{ item.active }}</text>
 								<view>
 									<text>审批人：{{item.userName}}</text>
 									<text class="{{ item.isApply ? (item.isPass  ? 'tag' : 'curag') : 'curag1' }}" >{{ item.pass }}</text>

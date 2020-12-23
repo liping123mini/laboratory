@@ -10,7 +10,7 @@
 </scroll-view>
 
 <view class='padding zdy-height'></view>
-<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 0 ? (360*roomlist.length)+'rpx' : '80vh') : (classlist.length > 0 ? (718*classlist.length)+'rpx' : '80vh') }}">
+<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 0 ? (340*roomlist.length)+'rpx' : '80vh') : (classlist.length > 0 ? (430*classlist.length)+'rpx' : '80vh') }}">
 	<block wx:for="{{ tabNav }}" wx:key="{{ index }}">
 		<!-- 房间审批 -->
 		<swiper-item wx:if="{{ TabCur === 0 }}">
@@ -27,8 +27,7 @@
 							<text class="text-gray">标签：{{ item.tagName }}</text>
 						</view>
 						<view class="bottom flex-row">
-							<text></text>
-							<!-- <text class="text-blue">动作：{{ item.typetext }}</text> -->
+							<text class="text-blue">动作：{{ item.active }}</text>
 							<view>
 								<text>审批人：{{item.userName}}</text>
 								<text class="{{ item.isPass  ? 'tag' : 'curag' }}">{{ item.pass }}</text>
