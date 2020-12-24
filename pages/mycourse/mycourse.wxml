@@ -41,7 +41,7 @@
 			{{item.value}}
 		</view>
 		<scroll-view class="myscroll" scroll-y="true">
-			<swiper style="height:{{  450*courselist.length > 0 ? (450*courselist.length)+'rpx' : '700rpx'}}" bindchange="bindchange"
+			<swiper style="height:{{  courselist.length > 4 ? (370*courselist.length)+'rpx' : '65vh'}}" bindchange="bindchange"
 			 current="{{ currenttab }}">
 				<block wx:for="{{ tabList }}" wx:key="{{ item.id }}">
 					<swiper-item>

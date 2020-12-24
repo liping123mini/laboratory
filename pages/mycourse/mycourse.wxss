@@ -80,9 +80,9 @@ page {
 }
 .myscroll{
 	padding: 20rpx;
-	height: 85vh;
+	height: 100%;
 	background: #fff;
-	border-bottom: 1px solid rgba(243,243,243,0.8);
+	/* border-bottom: 1px solid rgba(243,243,243,0.8); */
 }
 .myscroll  .course {
 	width: 98%;

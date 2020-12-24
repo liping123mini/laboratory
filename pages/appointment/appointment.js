@@ -5,6 +5,44 @@ const formatTime = require('../../utils/util')
 const dateTimePicker = require('../../utils/dateTimePicker.js');
 var that
 var list = []
+//new
+const date = new Date(); //获取系统日期
+const years = []
+const months = []
+const days = []
+const hours = []
+const minutes = []
+const bigMonth = [1, 3, 5, 7, 8, 10, 12]
+
+//将日期分开写入对应数组
+
+//年
+var getYear = date.getFullYear()
+var getMonth = date.getMonth()
+var getDate = date.getDate()
+var getHour = date.getHours()
+var getMinute = date.getMinutes()
+for (let i = getYear - 20; i <= getYear + 20; i++) {
+	years.push(i);
+}
+
+//月
+for (let i = 1; i <= 12; i++) {
+	months.push(i);
+}
+
+//日
+for (let i = 1; i <= 31; i++) {
+	days.push(i);
+}
+//时
+for(let i=0;i<=23;i++) {
+	hours.push(i)
+}
+//分  minute
+for(let i=0;i<=59;i++) {
+	minutes.push(i)
+}
 Page({
 	/**
 	 * 页面的初始数据
@@ -33,48 +71,228 @@ Page({
 		item: null, //所选的房间,
 		showName: false,
 		userId: null,
+		userGroup:null, //登录人权限
 		//new
-		startYear: new Date().getFullYear(),
-		endYear: new Date().getFullYear() + 3,
-		startDateArray: null,
-		endDateArray: null,
-		startTime: "",
-		endTime: "",
-		showTime: false, //开始
-		showTime1: false, //结束
-		userGroup: wx.getStorageSync("userGroup") //登录人权限
+		mytime:"",
+		myDate:"",
+		years: years,
+		year: getYear,
+		months: months,
+		month: getMonth + 1,
+		days: days,
+		day: getDate,
+		hours:hours,
+		getHour:getHour,
+		minutes:minutes,
+		getMinute:getMinute,
+		value: [20, getMonth, getDate - 1,getHour,getMinute],
+		isDaytime: true,
+		timeInput: '',
+		propDate: false,
+		showTime:false,
+		showTime1:false,
+		
+		myDate1:"",
+		years1: years,
+		year1: getYear,
+		months1: months,
+		month1: getMonth + 1,
+		days1: days,
+		day1: getDate,
+		hours1:hours,
+		getHour1:getHour,
+		minutes1:minutes,
+		getMinute1:getMinute,
+		value1: [20, getMonth, getDate - 1,getHour,getMinute],
 	},
 	//new
-	bindTypePickerChange: function(e) {
+	//new
+	dateMainBtn() {
+		let setYear = getYear;
+		let setMonth = (getMonth-1) < 10 ? "0"+( (getMonth-1)) :  (getMonth-1);
+		let setDay = getDate < 10 ? "0"+getDate : getDate;
+		let setHour = getHour < 10 ? "0"+getHour : getHour;
+		let setMin = getMinute <10 ? "0"+getMinute : getMinute;
+		let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
+		let todays = this.data.isDaytime === true ? '上午' : '下午'
+		this.getMyDay({
+			date: formatTime.formatDate(new Date()),
+		})
+		wx.setStorageSync("myDate",dateTimeBody)
 		this.setData({
-			typeIndex: e.detail.value
+			propDate: true,
+			// value:[20,setMonth,setDay-1,setHour,setMin],
+			nowDate: formatTime.formatDate(new Date())
 		})
 	},
-	bindStartDateChange: function(e) {
-		let startDateArray = this.data.startDateArray,
-			startDate = e.detail.value
+	dateMainBtn1() {
+		let setYear = getYear;
+		let setMonth = (getMonth-1) < 10 ? "0"+( (getMonth-1)) :  (getMonth-1);
+		let setDay = getDate < 10 ? "0"+getDate : getDate;
+		let setHour = getHour < 10 ? "0"+getHour : getHour;
+		let setMin = getMinute <10 ? "0"+getMinute : getMinute;
+		let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
+		let todays = this.data.isDaytime === true ? '上午' : '下午'
+		this.getMyDay({
+			date: formatTime.formatDate(new Date()),
+		})
+		wx.setStorageSync("myDate1",dateTimeBody)
 		this.setData({
+			propDate1: true,
+			// value1:[20,setMonth,setDay-1,setHour,setMin],
+			nowDate: formatTime.formatDate(new Date())
+		})
+	},
+	okBtnTime() {
+		this.setData({
+			propDate: false,
 			showTime: true,
-			startTime: startDateArray[0][startDate[0]] + "-" + startDateArray[1][startDate[1]] + "-" + startDateArray[2][
-				startDate[2]
-			] + " " + startDateArray[3][startDate[3]] + ":" + startDateArray[4][startDate[4]],
-			startDate: e.detail.value
+			myDate:wx.getStorageSync("myDate")
 		})
 	},
-	changeEndDateColumn(e) {
-
-	},
-	changeDateTimeColumn(e) {
-
-	},
-	bindEndDateChange: function(e) {
-		let endDateArray = this.data.endDateArray,
-			endDate = e.detail.value
+	okBtnTime1() {
 		this.setData({
+			propDate1: false,
 			showTime1: true,
-			endTime: endDateArray[0][endDate[0]] + "-" + endDateArray[1][endDate[1]] + "-" + endDateArray[2][endDate[2]] +
-				" " + endDateArray[3][endDate[3]] + ":" + endDateArray[4][endDate[4]],
-			endDate: e.detail.value
+			myDate1:wx.getStorageSync("myDate1")
+		})
+	},
+	noBtnTime() {
+		if(this.data.showTime) {
+			this.setData({
+				propDate: false,
+				nowDate: formatTime.formatDate(new Date())
+			})
+		}else {
+			this.setData({
+				propDate: false,
+				showTime:false
+			})
+		}
+		
+	},
+	noBtnTime1() {
+		if(this.data.showTime1) {
+			this.setData({
+				propDate1: false,
+				nowDate: formatTime.formatDate(new Date())
+			})
+		}else {
+			this.setData({
+				propDate1: false,
+				showTime1:false
+			})
+		}
+		
+	},
+	//判断元素是否在一个数组
+	contains: function(arr, obj) {
+		var i = arr.length;
+		while (i--) {
+			if (arr[i] === obj) {
+				return true;
+			}
+		}
+		return false;
+	},
+	setDays: function(day) {
+		const temp = [];
+		for (let i = 1; i <= day; i++) {
+			temp.push(i)
+		}
+		this.setData({
+			days: temp,
+		})
+	},
+	//选择滚动器改变触发事件
+	bindChange: function(e) {
+		const val = e.detail.value;
+		//判断月的天数
+		const setYear = this.data.years[val[0]];
+		const setMonth = this.data.months[val[1]];
+		const setDay = this.data.days[val[2]]
+		const setHour = this.data.hours[val[3]]
+		const setMin = this.data.minutes[val[4]]
+		//闰年
+		if (setMonth === 2) {
+			if (setYear % 4 === 0 && setYear % 100 !== 0) {
+				this.setDays(29);
+			} else {
+				this.setDays(28);
+			}
+		} else {
+			//大月
+			if (this.contains(bigMonth, setMonth)) {
+				this.setDays(31)
+			} else {
+				this.setDays(30)
+			}
+		}
+		this.setData({
+			year: setYear,
+			month: setMonth,
+			day: setDay,
+			getHour: setHour,
+			getMinute: setMin,
+			isDaytime: !val[3]
+		})
+		// console.log(setYear,setMonth)
+		let dateTimeBody = setYear + '-' + (setMonth<10?"0"+setMonth:setMonth) + '-' + (setDay<10?"0"+setDay:setDay) + " " + (setHour<10?"0"+setHour:setHour) + ":" + (setMin<10?"0"+setMin:setMin)
+		let todays = !val[3] === true ? '上午' : '下午'
+		wx.setStorageSync("myDate",dateTimeBody)
+		// this.setData({myDate:dateTimeBody})
+		this.getMyDay({
+			date: dateTimeBody,
+		})
+	},
+	//选择滚动器改变触发事件
+	bindChange1: function(e) {
+		const val = e.detail.value;
+		//判断月的天数
+		const setYear = this.data.years1[val[0]];
+		const setMonth = this.data.months1[val[1]];
+		const setDay = this.data.days1[val[2]]
+		const setHour = this.data.hours1[val[3]]
+		const setMin = this.data.minutes1[val[4]]
+		//闰年
+		if (setMonth === 2) {
+			if (setYear % 4 === 0 && setYear % 100 !== 0) {
+				this.setDays(29);
+			} else {
+				this.setDays(28);
+			}
+		} else {
+			//大月
+			if (this.contains(bigMonth, setMonth)) {
+				this.setDays(31)
+			} else {
+				this.setDays(30)
+			}
+		}
+		this.setData({
+			year1: setYear,
+			month1: setMonth,
+			day1: setDay,
+			getHour1: setHour,
+			getMinute1: setMin,
+			isDaytime: !val[3]
+		})
+		// console.log(setYear,setMonth)
+		let dateTimeBody = setYear + '-' + (setMonth<10?"0"+setMonth:setMonth) + '-' + (setDay<10?"0"+setDay:setDay) + " " + (setHour<10?"0"+setHour:setHour) + ":" + (setMin<10?"0"+setMin:setMin)
+		let todays = !val[3] === true ? '上午' : '下午'
+		wx.setStorageSync("myDate1",dateTimeBody)
+		// this.setData({myDate1:dateTimeBody})
+		this.getMyDay({
+			date: dateTimeBody,
+		})
+	},
+	//获取当前日期
+	getMyDay(arg) {
+		let that = this
+		post.post('api/getSemDay', arg, function(res) {
+			that.setData({
+				mytime: res
+			})
 		})
 	},
 	//new
@@ -189,6 +407,7 @@ Page({
 	 */
 	onLoad: function() {
 		this.setData({
+			userGroup:wx.getStorageSync("userGroup"),
 			userId:wx.getStorageSync('userId'),
 			nowDate: formatTime.formatDate(new Date()),
 		});
@@ -298,8 +517,8 @@ Page({
 	appointmenthouse: function(e) {
 		let arg = {
 			date: this.data.nowDate,
-			startTime: this.data.startTime,
-			endTime: this.data.endTime,
+			startTime: this.data.myDate,
+			endTime: this.data.myDate1,
 			userId: this.data.userId
 		}
 		this.getApplyRooms(arg) //获取实验室列表

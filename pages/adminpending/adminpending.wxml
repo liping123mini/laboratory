@@ -10,21 +10,20 @@
 </scroll-view>
 
 <view class='padding zdy-height'></view>
-<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (houseApproval.length > 0 ? (450*houseApproval.length)+'rpx' : '80vh') : (classApproval.length > 0 ? (850*classApproval.length)+'rpx' : '80vh') }}">
-	<block wx:for="{{ tabNav }}" wx:key="{{ index }}">
-		<!-- 房间待审批 -->
-		<swiper-item wx:if="{{ TabCur==0 }}">
-			<view wx:if="{{ houseApproval.length > 0 }}" class="cu-list menu sm-border margain-top zdy-card">
+<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (houseApproval.length > 4 ? (450*houseApproval.length)+'rpx' : '80vh') : (classApproval.length > 4 ? (850*classApproval.length)+'rpx' : '80vh') }}">
+	<swiper-item>
+		<view wx:if="{{ houseApproval.length > 0 }}" class="cu-list menu sm-border margain-top zdy-card">
+			<checkbox-group bindchange="change2">
 				<view class="cu-item" wx:for="{{houseApproval}}" wx:key="{{ item.id }}" data-item="{{item}}" wx:key="{{index}}">
 					<view class="box">
 						<view class="top flex-row">
 							<view class="flex-row" style="align-items: center;">
-								<checkbox style="margin:auto 0rpx;" id="item{{ index }}" value="{{ item.id }},{{ index }}" checked="{{ item.checked }}"></checkbox>
+								<checkbox style="margin:auto 0rpx;" id="item{{ index }}" value="{{ item.id }}" checked="{{ item.checked }}"></checkbox>
 								<text>申请人：{{ item.userinfoName }}</text>
 							</view>
 							<text>{{ item.addTime }}</text>
 						</view>
-						<label style="width: 100%;" for="item{{ index }}" catchtap="change2" data-index="{{ index }}">
+						<label style="width: 100%;" for="item{{ index }}">
 							<view class="mycontent">
 								<view class="text-gray text-df">
 									<text class="margin-right-xs"></text>
@@ -53,21 +52,23 @@
 						</label>
 					</view>
 				</view>
-			</view>
-			<view class="nilist" wx:else>暂无数据</view>
-		</swiper-item>
-		<swiper-item wx:else>
-			<view wx:if="{{ classApproval.length>0 }}" class="cu-list menu sm-border margain-top zdy-card">
+			</checkbox-group>
+		</view>
+		<view class="nilist" wx:else>暂无数据</view>
+	</swiper-item>
+	<swiper-item>
+		<view wx:if="{{ classApproval.length>0 }}" class="cu-list menu sm-border margain-top zdy-card">
+			<checkbox-group bindchange="change2">
 				<view class="cu-item" wx:for="{{classApproval}}" wx:key="{{ item.id }}" data-item="{{item}}" wx:key="{{index}}">
 					<view class="box">
 						<view class="top flex-row">
 							<view class="flex-row">
-								<checkbox style="margin:auto 0rpx;" id="item{{ index }}" value="{{ item.id }},{{ index }}" checked="{{ item.checked }}"></checkbox>
+								<checkbox style="margin:auto 0rpx;" id="id{{ index }}" value="{{ item.id }}" checked="{{ item.checked }}"></checkbox>
 								<text>申请人：{{ item.addUserName }}</text>
 							</view>
 							<text class="time">{{ item.addTime }}</text>
 						</view>
-						<label style="width: 100%;" for="item{{ index }}" catchtap="change2" data-index="{{ index }}">
+						<label style="width: 100%;" for="id{{ index }}">
 							<view class="mycontent">
 								<view class="text-gray text-df">
 									<text class="margin-right-xs"></text>
@@ -83,7 +84,7 @@
 								</view>
 								<view class="text-gray text-df">
 									<text class="margin-right-xs"></text>
-									上课日期：{{ item.semDay }}  {{ item.unit }}
+									上课日期：{{ item.semDay }} {{ item.unit }}
 								</view>
 							</view>
 							<view wx:if="{{ item.type === 3 }}" class="mycontent">
@@ -101,7 +102,7 @@
 								</view>
 								<view class="text-gray text-df">
 									<text class="margin-right-xs"></text>
-									原始日期：{{ item.originSemDay }}  {{ item.originUnit }}
+									原始日期：{{ item.originSemDay }} {{ item.originUnit }}
 								</view>
 							</view>
 							<view wx:if="{{ item.type !== 2 }}" class="text-gray text-df">
@@ -118,10 +119,10 @@
 						</label>
 					</view>
 				</view>
-			</view>
-			<view class="nilist" wx:else>暂无数据</view>
-		</swiper-item>
-	</block>
+			</checkbox-group>
+		</view>
+		<view class="nilist" wx:else>暂无数据</view>
+	</swiper-item>
 </swiper>
 
 <loading hidden="{{loadingHidden}}">加载中...</loading>

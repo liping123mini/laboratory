@@ -1,18 +1,46 @@
 .cu-form-group .title {
 	min-width: calc(4em + 30rpx);
 }
-
+/* new */
+/* new */
+.propTimeBody{
+  position: fixed;
+  left: 0.left;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+}
+.propTimeBody .propTimeMain{
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 111;
+}
+.propTimeBody .propTimeMain .propTop{
+  text-align: center;
+  padding: 30rpx 20rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.propTimeBody .propTimeMain .propTop .noBtn{
+  color: #666;
+}
+.propTimeBody .propTimeMain .propTop .okBtn{
+  color: #0084ff;
+}
+/* new */
+/* new */
 /* 自定义picker */
 .mypicker {
-	width: 72%;
-	height: 100rpx;
-	line-height: 100rpx;
-}
-.mypicker text {
-	width: 100%;
 	display: block;
+	width: 100%;
+	height: 100rpx;
 	text-align: right;
-	font-size: 30rpx;
+	line-height: 100rpx;
 }
 .mypicker::after {
 	font-family: "iconfont";
@@ -20,6 +48,8 @@
 	font-size: 34rpx;
 	color: var(--grey);
 	line-height: 100rpx;
+	/* position: absolute;
+	right: 40rpx; */
 }
 .mycheckbox {
 	/* margin-top: 20rpx; */
@@ -36,7 +66,7 @@ textarea {
 	position: fixed;
 	background: rgba(0, 0, 0, 0.6);
 }
-
+/* //房间弹框样式 */
 .bottomPicker {
 	width: 100%;
 	position: fixed;

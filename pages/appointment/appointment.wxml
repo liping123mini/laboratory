@@ -10,27 +10,15 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">开始时间</view>
-		<picker mode="multiSelector" value="{{startDate}}" bindchange="bindStartDateChange" bindcolumnchange="changeDateTimeColumn"
-		 range="{{startDateArray}}">
-			<view class="picker" wx:if="{{ showTime }}">
-				{{startDateArray[0][startDate[0]]}}-{{startDateArray[1][startDate[1]]}}-{{startDateArray[2][startDate[2]]}} {{startDateArray[3][startDate[3]]}}:{{startDateArray[4][startDate[4]]}}
-			</view>
-			<view class="picker" wx:else>
-				请选择
-			</view>
-		</picker>
+		<view class="mypicker" data-who="start" bindtap="dateMainBtn">
+			<text>{{ showTime ? myDate : "请选择" }}</text>
+		</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">结束时间</view>
-		<picker mode="multiSelector" value="{{endDate}}" bindchange="bindEndDateChange" bindcolumnchange="changeEndDateColumn"
-		 range="{{endDateArray}}">
-			<view class="picker" wx-if="{{ showTime1 }}">
-				{{endDateArray[0][endDate[0]]}}-{{endDateArray[1][endDate[1]]}}-{{endDateArray[2][endDate[2]]}} {{endDateArray[3][endDate[3]]}}:{{endDateArray[4][endDate[4]]}}
-			</view>
-			<view class="picker" wx:else>
-				请选择
-			</view>
-		</picker>
+		<view class="mypicker" data-who="end" bindtap="dateMainBtn1">
+			<text>{{ showTime1 ? myDate1 : "请选择" }}</text>
+		</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">预约事项</view>
@@ -87,5 +75,61 @@
 			</block>
 		</checkbox-group>
 	</view>
-	
+
+</view>
+<!-- 开始时间底部弹框 -->
+<view class="propTimeBody" wx:if="{{propDate}}">
+	<view class="propTimeMain">
+		<view class="propTop clearfix">
+			<text class="fl noBtn" bindtap="noBtnTime">取消</text>
+			<!-- 第几周 -->
+			<text>{{mytime}}</text>
+			<text class="fr okBtn" bindtap="okBtnTime">确定</text>
+		</view>
+		<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key="years" style="line-height: 50px; text-align: center;">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months}}" wx:key="months" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days}}" wx:key="days" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}日</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{hours}}" wx:key="hours" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}点</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{minutes}}" wx:key="minutes" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}分</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+<!-- 结束 -->
+<view class="propTimeBody" wx:if="{{propDate1}}">
+	<view class="propTimeMain">
+		<view class="propTop clearfix">
+			<text class="fl noBtn" bindtap="noBtnTime1">取消</text>
+			<!-- 第几周 -->
+			<text>{{mytime1}}</text>
+			<text class="fr okBtn" bindtap="okBtnTime1">确定</text>
+		</view>
+		<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value1}}" bindchange="bindChange1">
+			<picker-view-column>
+				<view wx:for="{{years1}}" wx:key="years1" style="line-height: 50px; text-align: center;">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months1}}" wx:key="months1" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days1}}" wx:key="days1" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}日</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{hours1}}" wx:key="hours1" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}点</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{minutes1}}" wx:key="minutes1" style="line-height: 50px; text-align: center;">{{item < 10 ? "0"+item : item}}分</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
 </view>

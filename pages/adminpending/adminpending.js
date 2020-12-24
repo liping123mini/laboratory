@@ -19,7 +19,8 @@ Page({
 		classApproval: [],//课程修改审批
 		CustomBar: app.globalData.CustomBar,
 		diamess:"",
-		modalName: null
+		modalName: null,
+		userGroup: null //登录人权限
 		
 	},
 	//获取房间审批列表 
@@ -138,52 +139,17 @@ Page({
 	//通过或拒绝课程修改
 	//多选
 	change2:function(e) {
-		if(!this.data.all_checked) {
-			this.setData({ houseIdArr:[] })
-		}
-		if(this.data.all_checked) {
-			this.setData({ count:0 })
-		}
-		let index = e.currentTarget.dataset.index
+		let ids = e.detail.value
 		let index1 = this.data.TabCur
-		let count = this.data.count
-		let houseApproval = []
 		let length = index1 === 1 ? this.data.classApproval.length : this.data.houseApproval.length
-		if(index1 === 1) {
-			this.setData({ 
-				index: index,
-				count: count === length ? count : (this.data.classApproval[index].checked ? ++count : count),
-				['classApproval[' + index + '].checked']: !this.data.classApproval[index].checked
-			})
-			if(this.data.count === length) {
-				this.setData({ all_checked:true })
-			}
-			houseApproval = this.data.classApproval
+		console.log(e.detail.value)
+		// console.log(index1,length)
+		if(ids.length >= length) {
+			this.setData({all_checked:true})
 		}else {
-			this.setData({
-				index: index,
-				count: count === length ? count : (this.data.houseApproval[index].checked ? ++count : count),
-				['houseApproval[' + index + '].checked']: !this.data.houseApproval[index].checked
-			})
-			houseApproval = this.data.houseApproval
+			this.setData({all_checked:false})
 		}
-		let checked = houseApproval[index].checked
-		let arr1 = []
-		if (!checked) {
-			this.setData({
-				all_checked: false
-			})
-		}
-		houseApproval.forEach(ele => {
-			if(ele.checked) {
-				arr1.push(ele.id)
-			}
-		})
-		this.setData({ count:arr1.length })
-		if(this.data.count === length) {
-			this.setData({ all_checked:true })
-		}
-		this.setData({ houseIdArr: arr1 })
+		this.setData({ houseIdArr: ids })
 	},
 	change1:function() {
 		if(this.data.houseApproval.length > 0 || this.data.classApproval.length > 0){
@@ -276,7 +242,7 @@ Page({
 			console.log("else")
 			app.globalData.TabCur = this.data.TabCur
 		}
-		this.setData({ userId:wx.getStorageSync('userId') })
+		this.setData({ userId:wx.getStorageSync('userId'),userGroup:wx.getStorageSync('userGroup') })
 	},
 	/**
 	 * 生命周期函数--监听页面显示

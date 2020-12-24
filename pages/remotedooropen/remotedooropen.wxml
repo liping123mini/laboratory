@@ -9,7 +9,7 @@
 		</block>
 	</view>
 	<scroll-view style="height: 80vh;" class="myscroll" scroll-y="true" bindscrolltolower="chudi">
-		<swiper style="height:{{  currettab === 0 ? (200*remoteList.length)+'rpx' : (historylist.length > 0 ? (250*historylist.length)+'rpx' : '700rpx') }}"
+		<swiper style="height:{{  currettab === 0 ? (200*remoteList.length)+'rpx' : (historylist.length > 0 ? (265*historylist.length)+'rpx' : '700rpx') }}"
 		 bindchange="bindchange" current="{{ currettab }}">
 			<!-- 开门列表 -->
 			<swiper-item>
@@ -30,19 +30,21 @@
 			<swiper-item>
 				<block wx:for="{{ historylist }}" wx:key="{{ item.id }}">
 					<view class="list list1">
+						<text class="mytime">{{ item.addTime }}</text>
 						<view class="flex-row">
-							<view class="right flex-col">
-								<text>操作人员：{{ item.addUserName }}</text>
-								<text>操作房间：{{ item.labName }}</text>
-								<text>操作种类：{{ item.kindName }}</text>
-								<text>操作方法：{{ item.kindMethod }}</text>
-							</view>
+							<text>操作人员：{{ item.addUserName }}</text>
+							<text>操作房间：{{ item.labName }}</text>
+						</view>
+						<view class="flex-row">
+							<text>操作种类：{{ item.kindName }}</text>
+							<text>操作方法：{{ item.kindName }}</text>
 						</view>
 					</view>
 				</block>
 			</swiper-item>
 		</swiper>
+		
 	</scroll-view>
-	<view wx:if="{{ isdaodi.flag }}" style="text-align: center;font-size: 24rpx;">{{ isdaodi.text }}</view>
-	<!-- <view wx:if="{{  }}" class="nlist">暂无数据</view> -->
+	
+	<view wx:if="{{ isdaodi.flag }}" class="myfooter">{{ isdaodi.text }}</view>
 </view>

@@ -8,7 +8,7 @@
   </view>
 </scroll-view>
 <view class='padding zdy-height'></view>
-<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 0 ? (350*roomlist.length)+'rpx' : '80vh') : (classlist.length > 0 ? (490*classlist.length)+'rpx' : '80vh') }}">
+<swiper bindchange="bindchange" current="{{ TabCur }}" style="height:{{  TabCur === 0 ? (roomlist.length > 4 ? (350*roomlist.length)+'rpx' : '80vh') : (classlist.length > 4 ? (400*classlist.length)+'rpx' : '80vh') }}">
 	<block wx:for="{{ tabNav }}" wx:key="{{ index }}">
 		<!-- 房间申请 -->
 		<swiper-item wx:if="{{ TabCur === 0 }}">

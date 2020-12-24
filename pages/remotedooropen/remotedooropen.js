@@ -117,7 +117,7 @@ Page({
 		},arr = this.data.historylist
 		this.setData({
 			'isdaodi.flag':true,
-			'isdaodi.text':"加载中"
+			'isdaodi.text':"加载中~~~"
 		})
 		post.post('api/doorCtrRocord', arg, res => {
 			if(res.length > 0) {
@@ -127,14 +127,16 @@ Page({
 					'isdaodi.flag':false
 				})
 			}else {
-				this.setData({
-					'isdaodi.flag':true,
-					'isdaodi.text':"到底了~~~"
-				})
+				setTimeout(() => {
+					this.setData({
+						'isdaodi.flag':true,
+						'isdaodi.text':"到底了~~~"
+					})
+				},200)
 			}
 			setTimeout(() => {
 				this.setData({ 'isdaodi.flag':false })
-			},1500)
+			},1000)
 			
 		})
 	},
