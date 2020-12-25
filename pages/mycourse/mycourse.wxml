@@ -41,11 +41,11 @@
 			{{item.value}}
 		</view>
 		<scroll-view class="myscroll" scroll-y="true">
-			<swiper style="height:{{  courselist.length > 4 ? (370*courselist.length)+'rpx' : '65vh'}}" bindchange="bindchange"
+			<swiper style="height:{{  courselist.length > 4 ? (370*courselist.length)+'rpx' : '85vh'}}" bindchange="bindchange"
 			 current="{{ currenttab }}">
 				<block wx:for="{{ tabList }}" wx:key="{{ item.id }}">
 					<swiper-item>
-						<view class="nolist" wx:if="{{ 430*courselist.length <= 0 }}">暂无数据</view>
+						<view class="nolist" wx:if="{{ courselist.length <= 0 }}">暂无数据</view>
 						<view wx:else>
 							<block wx:for="{{ courselist }}" wx:key="{{ item.id }}">
 								<view class="course flex-col">

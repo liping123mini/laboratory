@@ -36,11 +36,11 @@ for (let i = 1; i <= 31; i++) {
 	days.push(i);
 }
 //时
-for(let i=0;i<=23;i++) {
+for(let i=1;i<=23;i++) {
 	hours.push(i)
 }
 //分  minute
-for(let i=0;i<=59;i++) {
+for(let i=1;i<=59;i++) {
 	minutes.push(i)
 }
 Page({
@@ -85,7 +85,7 @@ Page({
 		getHour:getHour,
 		minutes:minutes,
 		getMinute:getMinute,
-		value: [20, getMonth, getDate - 1,getHour,getMinute],
+		value: [20, getMonth, getDate - 1,getHour-1,getMinute-1],
 		isDaytime: true,
 		timeInput: '',
 		propDate: false,
@@ -103,42 +103,62 @@ Page({
 		getHour1:getHour,
 		minutes1:minutes,
 		getMinute1:getMinute,
-		value1: [20, getMonth, getDate - 1,getHour,getMinute],
+		value1: [20, getMonth, getDate - 1,getHour-1,getMinute-1],
 	},
 	//new
+	onUnload() {
+		wx.setStorageSync("myDate","")
+		wx.setStorageSync("myDate1","")
+	},
 	//new
 	dateMainBtn() {
 		let setYear = getYear;
-		let setMonth = (getMonth-1) < 10 ? "0"+( (getMonth-1)) :  (getMonth-1);
+		let setMonth = (getMonth+1) < 10 ? "0"+( (getMonth+1)) :  (getMonth+1);
 		let setDay = getDate < 10 ? "0"+getDate : getDate;
 		let setHour = getHour < 10 ? "0"+getHour : getHour;
 		let setMin = getMinute <10 ? "0"+getMinute : getMinute;
-		let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
+		// let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
 		let todays = this.data.isDaytime === true ? '上午' : '下午'
 		this.getMyDay({
 			date: formatTime.formatDate(new Date()),
 		})
+		let Year = new Date().getFullYear();
+		let Month = (new Date().getMonth()+1) < 10 ? "0"+( (new Date().getMonth()+1)) :  (new Date().getMonth()+1);
+		let Day = new Date().getDate() < 10 ? "0"+ new Date().getDate() :  new Date().getDate();
+		let Hour = new Date().getHours() < 10 ? "0"+new Date().getHours() : new Date().getHours();
+		let Min = new Date().getMinutes() <10 ? "0"+new Date().getMinutes() : new Date().getMinutes();
+		let dateTimeBody = Year + '-' + Month + '-' + setDay + " " + Hour + ":" + Min
+		// console.log(setMonth,setDay,setHour,setMin)
 		wx.setStorageSync("myDate",dateTimeBody)
 		this.setData({
 			propDate: true,
+			// myDate:dateTimeBody,
 			// value:[20,setMonth,setDay-1,setHour,setMin],
 			nowDate: formatTime.formatDate(new Date())
 		})
 	},
 	dateMainBtn1() {
 		let setYear = getYear;
-		let setMonth = (getMonth-1) < 10 ? "0"+( (getMonth-1)) :  (getMonth-1);
+		let setMonth = (getMonth+1) < 10 ? "0"+( (getMonth+1)) :  (getMonth+1);
 		let setDay = getDate < 10 ? "0"+getDate : getDate;
 		let setHour = getHour < 10 ? "0"+getHour : getHour;
 		let setMin = getMinute <10 ? "0"+getMinute : getMinute;
-		let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
+		// let dateTimeBody = setYear + '-' + setMonth + '-' + setDay + " " + setHour + ":" + setMin
 		let todays = this.data.isDaytime === true ? '上午' : '下午'
 		this.getMyDay({
 			date: formatTime.formatDate(new Date()),
 		})
+		
+		let Year = new Date().getFullYear();
+		let Month = (new Date().getMonth()+1) < 10 ? "0"+( (new Date().getMonth()+1)) :  (new Date().getMonth()+1);
+		let Day = new Date().getDate() < 10 ? "0"+ new Date().getDate() :  new Date().getDate();
+		let Hour = new Date().getHours() < 10 ? "0"+new Date().getHours() : new Date().getHours();
+		let Min = new Date().getMinutes() <10 ? "0"+new Date().getMinutes() : new Date().getMinutes();
+		let dateTimeBody = Year + '-' + Month + '-' + setDay + " " + Hour + ":" + Min
 		wx.setStorageSync("myDate1",dateTimeBody)
 		this.setData({
 			propDate1: true,
+			// myDate1:dateTimeBody,
 			// value1:[20,setMonth,setDay-1,setHour,setMin],
 			nowDate: formatTime.formatDate(new Date())
 		})
@@ -457,13 +477,14 @@ Page({
 	formSubmit: function(e) {
 		let arg = {
 			date: this.data.nowDate,
-			startTime: this.data.startTime,
-			endTime: this.data.endTime,
+			startTime: this.data.myDate,
+			endTime: this.data.myDate1,
 			labIds: this.data.labIds,
 			userId: this.data.userId,
 			tagId: this.data.appoint.dictId,
 			des: this.data.textareaAValue
 		}
+		// console.log(arg)
 		if (!this.data.showTime) {
 			wx.showToast({
 				title: "请选择开始时间",

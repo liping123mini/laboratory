@@ -1,6 +1,6 @@
 //app.js
 let servers = "https://sys.nciae.edu.cn/"
-// let servers = "http://9he62f.natappfree.cc/"
+// let servers = "http://ehzi4j.natappfree.cc/"
 const md5 = require('./utils/md5-min');
 const CryptoJS = require('./utils/aes');
 // aes加密方法
