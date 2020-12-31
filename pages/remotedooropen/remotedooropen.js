@@ -22,7 +22,7 @@ Page({
 		isdaodi:{
 			flag:false,
 			text: ""
-		}
+		},
 	},
 	onLoad() {
 		this.setData({
@@ -126,6 +126,7 @@ Page({
 				this.setData({
 					'isdaodi.flag':false
 				})
+				
 			}else {
 				setTimeout(() => {
 					this.setData({
